@@ -30,3 +30,6 @@ Open [http://localhost:3000](http://localhost:3000).
 - `app/[[...page]]/page.tsx` — App Router catch-all route that fetches Builder `page` content by URL path.
 
 The catch-all route renders any path that has matching Builder content. If no content exists and preview mode is not active, it returns a 404.
+
+
+<img width="2996" height="1646" alt="image" src="https://github.com/user-attachments/assets/a9e6cb87-5866-476f-b4f1-915d89ab598f" />
