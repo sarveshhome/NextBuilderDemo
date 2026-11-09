@@ -1,5 +1,5 @@
 {
-  "name": "next-builder-demo",
+  "name": "NextBuilderDemo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@builder.io/react": "^9.4.11",
+    "@builder.io/sdk": "^6.3.4",
+    "@builder.io/sdk-react-nextjs": "^0.26.2",
     "next": "16.4.5",
     "react": "19.3.0",
     "react-dom": "19.3.0"

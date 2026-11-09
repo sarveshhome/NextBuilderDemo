@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextBuilderDemo
 
-## Getting Started
+Next.js App Router project integrated with [Builder.io](https://www.builder.io/).
 
-First, run the development server:
+## Setup
+
+1. Create a Builder.io account and get your **Public API Key**.
+2. Copy `.env.example` to `.env.local` and set:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+NEXT_PUBLIC_BUILDER_API_KEY=your_builder_public_api_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. In Builder, create a **Page** model entry whose URL matches a route in this app (for example `/`).
+4. Publish the page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+## Builder integration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `lib/builder.ts` — Builder API key configuration.
+- `components/RenderBuilderContent.tsx` — client component that renders Builder content and supports preview mode.
+- `app/[[...page]]/page.tsx` — App Router catch-all route that fetches Builder `page` content by URL path.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The catch-all route renders any path that has matching Builder content. If no content exists and preview mode is not active, it returns a 404.
